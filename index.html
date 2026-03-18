@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>FocusPulse</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlossomFocus 🌸</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <div class="container">
-    <h1>🍅 FocusPulse</h1>
+<div class="bg-glow"></div>
+<div class="flash" id="flash"></div>
 
-    <div id="timer">25:00</div>
+<div class="page">
 
-    <div class="buttons">
-      <button onclick="startTimer()">Start</button>
-      <button onclick="pauseTimer()">Pause</button>
-      <button onclick="resetTimer()">Reset</button>
+  <div class="brand">🌸 BlossomFocus</div>
+  <div class="brand-sub">Grow your focus, bloom your day</div>
+
+  <div class="mode-tabs">
+    <button class="mode-tab active" data-mode="focus" onclick="setMode('focus')">🌼 Focus</button>
+    <button class="mode-tab break" data-mode="short" onclick="setMode('short')">🧋 Break</button>
+    <button class="mode-tab long" data-mode="long" onclick="setMode('long')">🌙 Long</button>
+  </div>
+
+  <div class="timer-panel">
+
+    <div class="ring-wrap">
+      <svg viewBox="0 0 240 240">
+        <circle class="ring-bg" cx="120" cy="120" r="108"/>
+        <circle class="ring-prog" cx="120" cy="120" r="108" id="ringProg"
+          stroke-dasharray="678.6" stroke-dashoffset="0"/>
+      </svg>
+
+      <div class="ring-center">
+        <div class="time-display" id="timeDisplay">25:00</div>
+        <div class="phase-label" id="phaseLabel">FOCUS TIME 🌼</div>
+      </div>
     </div>
 
-    <div class="mode">
-      <button onclick="setMode('pomodoro')">Focus</button>
-      <button onclick="setMode('break')">Break</button>
+    <div class="session-dots" id="sessionDots"></div>
+
+    <div class="controls">
+      <button class="btn" onclick="resetTimer()">↺ Reset</button>
+      <button class="btn-primary" id="startBtn" onclick="toggleTimer()">Start</button>
+      <button class="btn" onclick="skipPhase()">Skip ↷</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
